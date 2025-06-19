@@ -1,189 +1,299 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Quote, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const Testimonials = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+const Testimonials: React.FC = () => {
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [autoPlay, setAutoPlay] = useState(true);
 
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      role: "Fashion Designer",
-      company: "StyleCorp",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+      name: 'Sarah Johnson',
+      role: 'Fashion Blogger',
+      location: 'New York, USA',
+      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
+      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4',
       rating: 5,
-      text: "JUSTBUYIT has completely transformed my shopping experience. The quality of products is exceptional, and the customer service is outstanding. I've been a loyal customer for over two years now!"
+      review: "JUSTBUYIT has completely transformed my online shopping experience. The quality of products is exceptional, and the customer service is outstanding. I've recommended it to all my friends!",
+      longReview: "I've been shopping with JUSTBUYIT for over two years now, and I can honestly say it's the best e-commerce platform I've ever used. The attention to detail in packaging, the speed of delivery, and the quality of products consistently exceed my expectations.",
+      category: 'Fashion & Lifestyle',
+      verified: true,
+      purchaseCount: 47
     },
     {
       id: 2,
-      name: "Michael Chen",
-      role: "Tech Entrepreneur",
-      company: "InnovateTech",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      name: 'Michael Chen',
+      role: 'Tech Entrepreneur',
+      location: 'San Francisco, USA',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
+      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4',
       rating: 5,
-      text: "The tech products available on JUSTBUYIT are cutting-edge and reasonably priced. Fast shipping and excellent packaging. This platform has become my go-to for all tech purchases."
+      review: "As someone who values cutting-edge technology, I appreciate how JUSTBUYIT stays ahead of the curve. Their tech products are always the latest and greatest, and the prices are unbeatable.",
+      longReview: "The tech selection at JUSTBUYIT is incredible. From the latest smartphones to innovative gadgets, they have everything a tech enthusiast could want. The detailed specifications and expert reviews help make informed decisions.",
+      category: 'Technology',
+      verified: true,
+      purchaseCount: 23
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      role: "Interior Designer",
-      company: "Home & Space",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      name: 'Emily Rodriguez',
+      role: 'Interior Designer',
+      location: 'Los Angeles, USA',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
+      video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4',
       rating: 5,
-      text: "I love the home decor section! The variety and quality are amazing. Every item I've purchased has exceeded my expectations. JUSTBUYIT makes it easy to find unique pieces for my projects."
+      review: "The home decor section is a treasure trove of beautiful, high-quality pieces. I've furnished multiple client projects with items from JUSTBUYIT, and they never disappoint.",
+      longReview: "What sets JUSTBUYIT apart is their curated selection of home decor items. Each piece is carefully chosen for quality and style. The detailed product descriptions and multiple angle photos make online shopping feel like browsing in a premium showroom.",
+      category: 'Home & Decor',
+      verified: true,
+      purchaseCount: 31
     },
     {
       id: 4,
-      name: "David Kim",
-      role: "Marketing Director",
-      company: "BrandForward",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      name: 'David Thompson',
+      role: 'Fitness Coach',
+      location: 'Miami, USA',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
+      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4',
       rating: 5,
-      text: "Professional service and premium products. The user experience is seamless, and I appreciate the attention to detail in every aspect of the shopping process. Highly recommended!"
+      review: "JUSTBUYIT's sports and fitness equipment section is phenomenal. The quality is gym-grade, and the delivery is lightning fast. Perfect for both personal use and my training studio.",
+      longReview: "I've equipped my entire fitness studio with products from JUSTBUYIT. The quality rivals professional gym equipment, but at a fraction of the cost. Their customer support team is also incredibly knowledgeable about fitness products.",
+      category: 'Sports & Fitness',
+      verified: true,
+      purchaseCount: 19
     },
     {
       id: 5,
-      name: "Lisa Thompson",
-      role: "Fitness Coach",
-      company: "FitLife Studio",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face",
+      name: 'Lisa Wang',
+      role: 'Beauty Influencer',
+      location: 'Toronto, Canada',
+      image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
+      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4',
       rating: 5,
-      text: "The fitness and wellness products are top-notch. Great prices, fast delivery, and excellent customer support. JUSTBUYIT has everything I need to maintain my active lifestyle."
+      review: "The beauty and skincare products are authentic and fresh. I love how they partner with premium brands to bring exclusive items. My followers always ask where I get my products!",
+      longReview: "As a beauty influencer, authenticity is crucial. JUSTBUYIT only stocks genuine products with proper batch codes and expiration dates. Their beauty section features both popular and niche brands that my audience loves to discover.",
+      category: 'Beauty & Skincare',
+      verified: true,
+      purchaseCount: 56
+    },
+    {
+      id: 6,
+      name: 'James Wilson',
+      role: 'Business Executive',
+      location: 'London, UK',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
+      video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4',
+      rating: 5,
+      review: "Exceptional service and premium quality products. The international shipping is reliable, and the customer support team is always helpful. JUSTBUYIT sets the standard for e-commerce excellence.",
+      longReview: "Managing a busy schedule means I need reliable online shopping. JUSTBUYIT delivers consistently - from business attire to tech gadgets. The premium membership benefits and priority customer service make it worth every penny.",
+      category: 'Business & Professional',
+      verified: true,
+      purchaseCount: 34
     }
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
+    if (autoPlay) {
+      const interval = setInterval(() => {
+        setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [autoPlay, testimonials.length]);
 
   const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    setAutoPlay(false);
   };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setAutoPlay(false);
   };
 
-  return (
-    <section className="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-white/5 rounded-full animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 rounded-full animate-pulse delay-500" />
-      </div>
+  const currentTestimonial = testimonials[activeTestimonial];
 
-      <div className="container mx-auto px-4 relative z-10">
+  return (
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            What Our Customers Say
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            Customer Love Stories
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Real experiences from real customers who love shopping with us
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Hear from our satisfied customers who've experienced the JUSTBUYIT difference
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Main testimonial card */}
-            <Card className="bg-white/10 backdrop-blur-md border-white/20 shadow-2xl overflow-hidden">
-              <CardContent className="p-8 md:p-12">
-                <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-                  {/* Customer Image */}
-                  <div className="flex-shrink-0">
-                    <div className="relative">
-                      <img
-                        src={testimonials[currentTestimonial].image}
-                        alt={testimonials[currentTestimonial].name}
-                        className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-white/20"
-                      />
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                        <Quote className="w-4 h-4 text-white" />
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Video Section */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-purple-600 to-pink-600 p-1">
+                <div className="relative rounded-xl overflow-hidden bg-black">
+                  <video
+                    key={activeTestimonial}
+                    autoPlay={isPlaying}
+                    muted
+                    loop
+                    className="w-full h-96 object-cover"
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                  >
+                    <source src={currentTestimonial.video} type="video/mp4" />
+                  </video>
+                  
+                  {/* Play Button Overlay */}
+                  {!isPlaying && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                      <button
+                        onClick={() => setIsPlaying(true)}
+                        className="bg-white/90 hover:bg-white rounded-full p-6 transition-all duration-300 hover:scale-110 shadow-lg"
+                      >
+                        <Play className="h-12 w-12 text-purple-600 ml-1" />
+                      </button>
+                    </div>
+                  )}
+                  
+                  {/* Video Info Overlay */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-black/70 backdrop-blur-sm rounded-lg p-4 text-white">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={currentTestimonial.image}
+                          alt={currentTestimonial.name}
+                          className="w-12 h-12 rounded-full border-2 border-white"
+                        />
+                        <div>
+                          <div className="font-semibold">{currentTestimonial.name}</div>
+                          <div className="text-sm opacity-80">{currentTestimonial.role}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  {/* Testimonial Content */}
-                  <div className="flex-1 text-center md:text-left">
-                    {/* Stars */}
-                    <div className="flex justify-center md:justify-start space-x-1 mb-4">
-                      {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-current text-yellow-400" />
-                      ))}
-                    </div>
+              {/* Floating Elements */}
+              <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center animate-bounce">
+                <Star className="h-6 w-6 text-white" />
+              </div>
+              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center animate-pulse">
+                <Quote className="h-8 w-8 text-white" />
+              </div>
+            </div>
 
-                    {/* Quote */}
-                    <blockquote className="text-lg md:text-xl text-white/90 leading-relaxed mb-6 italic">
-                      "{testimonials[currentTestimonial].text}"
-                    </blockquote>
+            {/* Testimonial Content */}
+            <div className="space-y-8">
+              <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 shadow-xl">
+                <CardContent className="p-8">
+                  {/* Rating */}
+                  <div className="flex items-center gap-2 mb-6">
+                    {[...Array(currentTestimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+                    ))}
+                    <span className="text-sm text-gray-600 dark:text-gray-400 ml-2">
+                      Verified Purchase
+                    </span>
+                  </div>
 
-                    {/* Customer Info */}
-                    <div>
-                      <h4 className="text-xl font-semibold text-white mb-1">
-                        {testimonials[currentTestimonial].name}
+                  {/* Quote */}
+                  <blockquote className="text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 mb-6 leading-relaxed">
+                    "{currentTestimonial.review}"
+                  </blockquote>
+
+                  {/* Extended Review */}
+                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                    {currentTestimonial.longReview}
+                  </p>
+
+                  {/* Customer Info */}
+                  <div className="flex items-center gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <img
+                      src={currentTestimonial.image}
+                      alt={currentTestimonial.name}
+                      className="w-16 h-16 rounded-full border-2 border-purple-200 dark:border-purple-700"
+                    />
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg text-gray-800 dark:text-gray-200">
+                        {currentTestimonial.name}
                       </h4>
-                      <p className="text-white/70">
-                        {testimonials[currentTestimonial].role} at {testimonials[currentTestimonial].company}
+                      <p className="text-purple-600 dark:text-purple-400 font-medium">
+                        {currentTestimonial.role}
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {currentTestimonial.location}
                       </p>
                     </div>
+                    <div className="text-right">
+                      <div className="bg-purple-100 dark:bg-purple-900 px-3 py-1 rounded-full text-sm font-medium text-purple-800 dark:text-purple-200">
+                        {currentTestimonial.category}
+                      </div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        {currentTestimonial.purchaseCount} purchases
+                      </div>
+                    </div>
                   </div>
+                </CardContent>
+              </Card>
+
+              {/* Navigation */}
+              <div className="flex items-center justify-between">
+                <div className="flex gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setActiveTestimonial(index);
+                        setAutoPlay(false);
+                      }}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === activeTestimonial
+                          ? 'bg-purple-600 scale-125'
+                          : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                    />
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
 
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-200 text-white"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-200 text-white"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
+                <div className="flex gap-2">
+                  <button
+                    onClick={prevTestimonial}
+                    className="p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full transition-colors duration-200 hover:scale-110"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full transition-colors duration-200 hover:scale-110"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
 
-          {/* Testimonial indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentTestimonial
-                    ? 'bg-white scale-125'
-                    : 'bg-white/40 hover:bg-white/60'
-                }`}
-              />
-            ))}
+        {/* Trust Indicators */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="space-y-2">
+            <div className="text-4xl font-bold text-purple-600">4.9/5</div>
+            <div className="text-gray-600 dark:text-gray-400">Average Rating</div>
           </div>
-
-          {/* Customer thumbnails */}
-          <div className="flex justify-center items-center space-x-4 mt-12">
-            {testimonials.map((testimonial, index) => (
-              <button
-                key={testimonial.id}
-                onClick={() => setCurrentTestimonial(index)}
-                className={`w-12 h-12 rounded-full overflow-hidden border-2 transition-all duration-300 ${
-                  index === currentTestimonial
-                    ? 'border-white scale-110'
-                    : 'border-white/40 hover:border-white/70 opacity-70 hover:opacity-100'
-                }`}
-              >
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            ))}
+          <div className="space-y-2">
+            <div className="text-4xl font-bold text-blue-600">50K+</div>
+            <div className="text-gray-600 dark:text-gray-400">Reviews</div>
+          </div>
+          <div className="space-y-2">
+            <div className="text-4xl font-bold text-green-600">98%</div>
+            <div className="text-gray-600 dark:text-gray-400">Recommend Us</div>
+          </div>
+          <div className="space-y-2">
+            <div className="text-4xl font-bold text-orange-600">24/7</div>
+            <div className="text-gray-600 dark:text-gray-400">Support</div>
           </div>
         </div>
       </div>
