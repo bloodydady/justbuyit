@@ -10,7 +10,6 @@ import StatsSection from '@/components/StatsSection';
 import Testimonials from '@/components/Testimonials';
 import ParallaxSection from '@/components/ParallaxSection';
 import AnimatedGraphs from '@/components/AnimatedGraphs';
-import ScrollPopup from '@/components/ScrollPopup';
 import Footer from '@/components/Footer';
 
 const HomePage: React.FC = () => {
@@ -37,11 +36,10 @@ const HomePage: React.FC = () => {
         <StatsSection />
         <Testimonials />
         <ParallaxSection />
-        <ScrollPopup />
       </main>
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default HomePage;

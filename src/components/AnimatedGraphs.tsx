@@ -20,15 +20,15 @@ const AnimatedGraphs: React.FC = () => {
   };
 
   const monthlyData = [
-    { month: 'Jan', sales: 65, users: 45, orders: 38, revenue: 52 },
-    { month: 'Feb', sales: 72, users: 52, orders: 45, revenue: 61 },
-    { month: 'Mar', sales: 68, users: 58, orders: 52, revenue: 58 },
-    { month: 'Apr', sales: 78, users: 65, orders: 61, revenue: 72 },
-    { month: 'May', sales: 82, users: 72, orders: 68, revenue: 78 },
-    { month: 'Jun', sales: 85, users: 78, orders: 72, revenue: 82 },
-    { month: 'Jul', sales: 88, users: 85, orders: 78, revenue: 86 },
-    { month: 'Aug', sales: 85, users: 92, orders: 78, revenue: 89 }
-  ];
+  { month: 'Jan', sales: 65, users: 45, orders: 38, revenue: 52 },
+  { month: 'Feb', sales: 72, users: 52, orders: 45, revenue: 61 },
+  { month: 'Mar', sales: 68, users: 58, orders: 52, revenue: 58 },
+  { month: 'Apr', sales: 78, users: 65, orders: 61, revenue: 72 },
+  { month: 'May', sales: 82, users: 72, orders: 68, revenue: 78 },
+  { month: 'Jun', sales: 85, users: 78, orders: 72, revenue: 82 },
+  { month: 'Jul', sales: 88, users: 85, orders: 78, revenue: 86 },
+  { month: 'Aug', sales: 85, users: 92, orders: 78, revenue: 89 }];
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,15 +75,15 @@ const AnimatedGraphs: React.FC = () => {
     }
   }, [isVisible]);
 
-  const CircularProgress: React.FC<{ value: number; color: string; size?: number }> = ({ 
-    value, 
-    color, 
-    size = 120 
+  const CircularProgress: React.FC<{value: number;color: string;size?: number;}> = ({
+    value,
+    color,
+    size = 120
   }) => {
     const radius = size / 2 - 10;
     const circumference = 2 * Math.PI * radius;
     const strokeDasharray = circumference;
-    const strokeDashoffset = circumference - (value / 100) * circumference;
+    const strokeDashoffset = circumference - value / 100 * circumference;
 
     return (
       <div className="relative">
@@ -95,8 +95,8 @@ const AnimatedGraphs: React.FC = () => {
             stroke="currentColor"
             strokeWidth="8"
             fill="transparent"
-            className="text-gray-200 dark:text-gray-700"
-          />
+            className="text-gray-200 dark:text-gray-700" />
+
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -107,66 +107,66 @@ const AnimatedGraphs: React.FC = () => {
             strokeDasharray={strokeDasharray}
             strokeDashoffset={strokeDashoffset}
             strokeLinecap="round"
-            className="transition-all duration-1000 ease-out"
-          />
+            className="transition-all duration-1000 ease-out" />
+
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-2xl font-bold text-gray-800 dark:text-gray-200">
             {value}%
           </span>
         </div>
-      </div>
-    );
+      </div>);
+
   };
 
   const BarChart: React.FC = () => {
-    const maxValue = Math.max(...monthlyData.map(d => Math.max(d.sales, d.users, d.orders, d.revenue)));
-    
+    const maxValue = Math.max(...monthlyData.map((d) => Math.max(d.sales, d.users, d.orders, d.revenue)));
+
     return (
       <div className="h-64 flex items-end justify-between space-x-2 p-4">
-        {monthlyData.map((data, index) => (
-          <div key={data.month} className="flex-1 flex flex-col items-center space-y-2">
+        {monthlyData.map((data, index) =>
+        <div key={data.month} className="flex-1 flex flex-col items-center space-y-2">
             <div className="flex space-x-1 items-end h-48">
               <div
-                className="bg-gradient-to-t from-purple-600 to-purple-400 rounded-t transition-all duration-1000 ease-out"
-                style={{ 
-                  height: isVisible ? `${(data.sales / maxValue) * 100}%` : '0%',
-                  width: '8px',
-                  animationDelay: `${index * 0.1}s`
-                }}
-              />
+              className="bg-gradient-to-t from-purple-600 to-purple-400 rounded-t transition-all duration-1000 ease-out"
+              style={{
+                height: isVisible ? `${data.sales / maxValue * 100}%` : '0%',
+                width: '8px',
+                animationDelay: `${index * 0.1}s`
+              }} />
+
               <div
-                className="bg-gradient-to-t from-blue-600 to-blue-400 rounded-t transition-all duration-1000 ease-out"
-                style={{ 
-                  height: isVisible ? `${(data.users / maxValue) * 100}%` : '0%',
-                  width: '8px',
-                  animationDelay: `${index * 0.1 + 0.1}s`
-                }}
-              />
+              className="bg-gradient-to-t from-blue-600 to-blue-400 rounded-t transition-all duration-1000 ease-out"
+              style={{
+                height: isVisible ? `${data.users / maxValue * 100}%` : '0%',
+                width: '8px',
+                animationDelay: `${index * 0.1 + 0.1}s`
+              }} />
+
               <div
-                className="bg-gradient-to-t from-green-600 to-green-400 rounded-t transition-all duration-1000 ease-out"
-                style={{ 
-                  height: isVisible ? `${(data.orders / maxValue) * 100}%` : '0%',
-                  width: '8px',
-                  animationDelay: `${index * 0.1 + 0.2}s`
-                }}
-              />
+              className="bg-gradient-to-t from-green-600 to-green-400 rounded-t transition-all duration-1000 ease-out"
+              style={{
+                height: isVisible ? `${data.orders / maxValue * 100}%` : '0%',
+                width: '8px',
+                animationDelay: `${index * 0.1 + 0.2}s`
+              }} />
+
               <div
-                className="bg-gradient-to-t from-orange-600 to-orange-400 rounded-t transition-all duration-1000 ease-out"
-                style={{ 
-                  height: isVisible ? `${(data.revenue / maxValue) * 100}%` : '0%',
-                  width: '8px',
-                  animationDelay: `${index * 0.1 + 0.3}s`
-                }}
-              />
+              className="bg-gradient-to-t from-orange-600 to-orange-400 rounded-t transition-all duration-1000 ease-out"
+              style={{
+                height: isVisible ? `${data.revenue / maxValue * 100}%` : '0%',
+                width: '8px',
+                animationDelay: `${index * 0.1 + 0.3}s`
+              }} />
+
             </div>
             <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
               {data.month}
             </span>
           </div>
-        ))}
-      </div>
-    );
+        )}
+      </div>);
+
   };
 
   return (
@@ -279,20 +279,20 @@ const AnimatedGraphs: React.FC = () => {
 
         {/* Animated Background Elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute animate-float opacity-10"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${8 + Math.random() * 4}s`
-              }}
-            >
+          {[...Array(8)].map((_, i) =>
+          <div
+            key={i}
+            className="absolute animate-float opacity-10"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${8 + Math.random() * 4}s`
+            }}>
+
               <div className="w-6 h-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full" />
             </div>
-          ))}
+          )}
         </div>
       </div>
 
@@ -310,8 +310,8 @@ const AnimatedGraphs: React.FC = () => {
           animation: float 6s ease-in-out infinite;
         }
       `}</style>
-    </section>
-  );
+    </section>);
+
 };
 
 export default AnimatedGraphs;

@@ -1,96 +1,96 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { 
-  Truck, 
-  Shield, 
-  Headphones, 
-  CreditCard, 
-  RefreshCw, 
+import {
+  Truck,
+  Shield,
+  Headphones,
+  CreditCard,
+  RefreshCw,
   Award,
   Clock,
   Globe,
   Heart,
-  Zap
-} from 'lucide-react';
+  Zap } from
+'lucide-react';
 
 const ServiceCards: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const services = [
-    {
-      id: 1,
-      icon: Truck,
-      title: 'Free Shipping',
-      description: 'Free delivery on orders over $50',
-      details: 'Fast and reliable delivery to your doorstep',
-      color: 'from-blue-500 to-blue-600',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
-    },
-    {
-      id: 2,
-      icon: Shield,
-      title: 'Secure Payment',
-      description: '100% secure payment processing',
-      details: 'Your payment information is always protected',
-      color: 'from-green-500 to-green-600',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
-    },
-    {
-      id: 3,
-      icon: Headphones,
-      title: '24/7 Support',
-      description: 'Round-the-clock customer service',
-      details: 'Get help whenever you need it',
-      color: 'from-purple-500 to-purple-600',
-      video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4'
-    },
-    {
-      id: 4,
-      icon: RefreshCw,
-      title: 'Easy Returns',
-      description: '30-day hassle-free returns',
-      details: 'Not satisfied? Return it within 30 days',
-      color: 'from-orange-500 to-orange-600',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
-    },
-    {
-      id: 5,
-      icon: Award,
-      title: 'Quality Guarantee',
-      description: 'Premium quality products only',
-      details: 'We stand behind every product we sell',
-      color: 'from-red-500 to-red-600',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
-    },
-    {
-      id: 6,
-      icon: Clock,
-      title: 'Fast Processing',
-      description: 'Orders processed within 24 hours',
-      details: 'Quick turnaround for faster delivery',
-      color: 'from-teal-500 to-teal-600',
-      video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4'
-    },
-    {
-      id: 7,
-      icon: Globe,
-      title: 'Global Reach',
-      description: 'Shipping to 50+ countries',
-      details: 'Worldwide delivery available',
-      color: 'from-indigo-500 to-indigo-600',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
-    },
-    {
-      id: 8,
-      icon: Heart,
-      title: 'Customer Love',
-      description: '99% customer satisfaction rate',
-      details: 'Join thousands of happy customers',
-      color: 'from-pink-500 to-pink-600',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
-    }
-  ];
+  {
+    id: 1,
+    icon: Truck,
+    title: 'Free Shipping',
+    description: 'Free delivery on orders over $50',
+    details: 'Fast and reliable delivery to your doorstep',
+    color: 'from-blue-500 to-blue-600',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
+  },
+  {
+    id: 2,
+    icon: Shield,
+    title: 'Secure Payment',
+    description: '100% secure payment processing',
+    details: 'Your payment information is always protected',
+    color: 'from-green-500 to-green-600',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
+  },
+  {
+    id: 3,
+    icon: Headphones,
+    title: '24/7 Support',
+    description: 'Round-the-clock customer service',
+    details: 'Get help whenever you need it',
+    color: 'from-purple-500 to-purple-600',
+    video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4'
+  },
+  {
+    id: 4,
+    icon: RefreshCw,
+    title: 'Easy Returns',
+    description: '30-day hassle-free returns',
+    details: 'Not satisfied? Return it within 30 days',
+    color: 'from-orange-500 to-orange-600',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
+  },
+  {
+    id: 5,
+    icon: Award,
+    title: 'Quality Guarantee',
+    description: 'Premium quality products only',
+    details: 'We stand behind every product we sell',
+    color: 'from-red-500 to-red-600',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
+  },
+  {
+    id: 6,
+    icon: Clock,
+    title: 'Fast Processing',
+    description: 'Orders processed within 24 hours',
+    details: 'Quick turnaround for faster delivery',
+    color: 'from-teal-500 to-teal-600',
+    video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4'
+  },
+  {
+    id: 7,
+    icon: Globe,
+    title: 'Global Reach',
+    description: 'Shipping to 50+ countries',
+    details: 'Worldwide delivery available',
+    color: 'from-indigo-500 to-indigo-600',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
+  },
+  {
+    id: 8,
+    icon: Heart,
+    title: 'Customer Love',
+    description: '99% customer satisfaction rate',
+    details: 'Join thousands of happy customers',
+    color: 'from-pink-500 to-pink-600',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
+  }];
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -115,12 +115,12 @@ const ServiceCards: React.FC = () => {
     const size = Math.max(rect.width, rect.height);
     const x = e.clientX - rect.left - size / 2;
     const y = e.clientY - rect.top - size / 2;
-    
+
     ripple.style.width = ripple.style.height = size + 'px';
     ripple.style.left = x + 'px';
     ripple.style.top = y + 'px';
     ripple.classList.add('ripple');
-    
+
     card.appendChild(ripple);
     setTimeout(() => ripple.remove(), 600);
   };
@@ -144,26 +144,26 @@ const ServiceCards: React.FC = () => {
               <Card
                 key={service.id}
                 className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-4 bg-white dark:bg-gray-800 border-0 shadow-lg relative overflow-hidden ripple-container ${
-                  isVisible ? 'animate-slide-up' : 'opacity-0'
-                }`}
+                isVisible ? 'animate-slide-up' : 'opacity-0'}`
+                }
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onMouseEnter={() => setHoveredCard(service.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                onClick={handleRippleEffect}
-              >
+                onClick={handleRippleEffect}>
+
                 {/* Background Video */}
-                {hoveredCard === service.id && (
-                  <div className="absolute inset-0 opacity-10">
+                {hoveredCard === service.id &&
+                <div className="absolute inset-0 opacity-10">
                     <video
-                      autoPlay
-                      muted
-                      loop
-                      className="w-full h-full object-cover"
-                    >
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-full object-cover">
+
                       <source src={service.video} type="video/mp4" />
                     </video>
                   </div>
-                )}
+                }
 
                 {/* Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
@@ -211,8 +211,8 @@ const ServiceCards: React.FC = () => {
                 {/* Floating Animation */}
                 <div className="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all duration-300" />
                 <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-300 delay-100" />
-              </Card>
-            );
+              </Card>);
+
           })}
         </div>
 
@@ -278,8 +278,8 @@ const ServiceCards: React.FC = () => {
           }
         }
       `}</style>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ServiceCards;

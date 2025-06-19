@@ -21,12 +21,12 @@ const ParallaxSection: React.FC = () => {
     const size = Math.max(rect.width, rect.height);
     const x = e.clientX - rect.left - size / 2;
     const y = e.clientY - rect.top - size / 2;
-    
+
     ripple.style.width = ripple.style.height = size + 'px';
     ripple.style.left = x + 'px';
     ripple.style.top = y + 'px';
     ripple.classList.add('ripple');
-    
+
     button.appendChild(ripple);
     setTimeout(() => ripple.remove(), 600);
   };
@@ -40,11 +40,11 @@ const ParallaxSection: React.FC = () => {
           muted
           loop
           className="w-full h-full object-cover"
-          style={{ 
+          style={{
             transform: `translateY(${scrollY * 0.5}px)`,
             filter: 'brightness(0.4)'
-          }}
-        >
+          }}>
+
           <source src="https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4" type="video/mp4" />
         </video>
       </div>
@@ -54,28 +54,28 @@ const ParallaxSection: React.FC = () => {
         {/* Floating Elements */}
         <div
           className="absolute top-1/4 left-1/4 w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full opacity-20 animate-pulse"
-          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-        />
+          style={{ transform: `translateY(${scrollY * 0.3}px)` }} />
+
         <div
           className="absolute top-1/3 right-1/4 w-16 h-16 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full opacity-20 animate-bounce"
-          style={{ transform: `translateY(${scrollY * 0.4}px)` }}
-        />
+          style={{ transform: `translateY(${scrollY * 0.4}px)` }} />
+
         <div
           className="absolute bottom-1/4 left-1/3 w-24 h-24 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full opacity-20"
-          style={{ transform: `translateY(${scrollY * 0.2}px)` }}
-        />
+          style={{ transform: `translateY(${scrollY * 0.2}px)` }} />
+
 
         {/* Animated Shapes */}
         <div
           className="absolute top-20 right-20 animate-spin-slow"
-          style={{ transform: `translateY(${scrollY * 0.6}px)` }}
-        >
+          style={{ transform: `translateY(${scrollY * 0.6}px)` }}>
+
           <Sparkles className="w-12 h-12 text-yellow-400 opacity-70" />
         </div>
         <div
           className="absolute bottom-20 left-20 animate-bounce"
-          style={{ transform: `translateY(${scrollY * 0.7}px)` }}
-        >
+          style={{ transform: `translateY(${scrollY * 0.7}px)` }}>
+
           <Zap className="w-16 h-16 text-purple-400 opacity-70" />
         </div>
       </div>
@@ -85,10 +85,10 @@ const ParallaxSection: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
-        <div 
+        <div
           className="max-w-5xl px-4"
-          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-        >
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+
           <div className="mb-8">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8">
               <Sparkles className="w-5 h-5 text-yellow-400" />
@@ -134,8 +134,8 @@ const ParallaxSection: React.FC = () => {
             <Button
               size="lg"
               className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 hover:scale-105 ripple-container"
-              onClick={handleRippleEffect}
-            >
+              onClick={handleRippleEffect}>
+
               Shop Sale Now
               <ArrowRight className="ml-2 h-6 w-6" />
             </Button>
@@ -144,8 +144,8 @@ const ParallaxSection: React.FC = () => {
               size="lg"
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-black font-bold text-xl px-12 py-6 rounded-full backdrop-blur-sm bg-white/10 hover:bg-white transition-all duration-300 hover:scale-105 ripple-container"
-              onClick={handleRippleEffect}
-            >
+              onClick={handleRippleEffect}>
+
               View Catalog
             </Button>
           </div>
@@ -239,8 +239,8 @@ const ParallaxSection: React.FC = () => {
           }
         }
       `}</style>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ParallaxSection;

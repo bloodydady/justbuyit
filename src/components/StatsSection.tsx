@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { 
-  Users, 
-  ShoppingCart, 
-  Award, 
-  Globe, 
-  TrendingUp, 
+import {
+  Users,
+  ShoppingCart,
+  Award,
+  Globe,
+  TrendingUp,
   Heart,
   Zap,
-  Star
-} from 'lucide-react';
+  Star } from
+'lucide-react';
 
 const StatsSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,87 +37,87 @@ const StatsSection: React.FC = () => {
   };
 
   const stats = [
-    {
-      id: 'customers',
-      icon: Users,
-      label: 'Happy Customers',
-      value: animatedStats.customers,
-      suffix: 'M+',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50 dark:bg-blue-900/20',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
-    },
-    {
-      id: 'orders',
-      icon: ShoppingCart,
-      label: 'Orders Delivered',
-      value: animatedStats.orders,
-      suffix: 'M+',
-      color: 'from-green-500 to-green-600',
-      bgColor: 'bg-green-50 dark:bg-green-900/20',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
-    },
-    {
-      id: 'satisfaction',
-      icon: Heart,
-      label: 'Satisfaction Rate',
-      value: animatedStats.satisfaction,
-      suffix: '%',
-      color: 'from-red-500 to-red-600',
-      bgColor: 'bg-red-50 dark:bg-red-900/20',
-      video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4'
-    },
-    {
-      id: 'countries',
-      icon: Globe,
-      label: 'Countries Served',
-      value: animatedStats.countries,
-      suffix: '+',
-      color: 'from-purple-500 to-purple-600',
-      bgColor: 'bg-purple-50 dark:bg-purple-900/20',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
-    },
-    {
-      id: 'growth',
-      icon: TrendingUp,
-      label: 'Growth Rate',
-      value: animatedStats.growth,
-      suffix: '%',
-      color: 'from-orange-500 to-orange-600',
-      bgColor: 'bg-orange-50 dark:bg-orange-900/20',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
-    },
-    {
-      id: 'reviews',
-      icon: Star,
-      label: 'Customer Reviews',
-      value: animatedStats.reviews,
-      suffix: 'K+',
-      color: 'from-yellow-500 to-yellow-600',
-      bgColor: 'bg-yellow-50 dark:bg-yellow-900/20',
-      video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4'
-    },
-    {
-      id: 'products',
-      icon: Zap,
-      label: 'Products Available',
-      value: animatedStats.products,
-      suffix: 'K+',
-      color: 'from-teal-500 to-teal-600',
-      bgColor: 'bg-teal-50 dark:bg-teal-900/20',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
-    },
-    {
-      id: 'awards',
-      icon: Award,
-      label: 'Industry Awards',
-      value: animatedStats.awards,
-      suffix: '+',
-      color: 'from-indigo-500 to-indigo-600',
-      bgColor: 'bg-indigo-50 dark:bg-indigo-900/20',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
-    }
-  ];
+  {
+    id: 'customers',
+    icon: Users,
+    label: 'Happy Customers',
+    value: animatedStats.customers,
+    suffix: 'M+',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50 dark:bg-blue-900/20',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
+  },
+  {
+    id: 'orders',
+    icon: ShoppingCart,
+    label: 'Orders Delivered',
+    value: animatedStats.orders,
+    suffix: 'M+',
+    color: 'from-green-500 to-green-600',
+    bgColor: 'bg-green-50 dark:bg-green-900/20',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
+  },
+  {
+    id: 'satisfaction',
+    icon: Heart,
+    label: 'Satisfaction Rate',
+    value: animatedStats.satisfaction,
+    suffix: '%',
+    color: 'from-red-500 to-red-600',
+    bgColor: 'bg-red-50 dark:bg-red-900/20',
+    video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4'
+  },
+  {
+    id: 'countries',
+    icon: Globe,
+    label: 'Countries Served',
+    value: animatedStats.countries,
+    suffix: '+',
+    color: 'from-purple-500 to-purple-600',
+    bgColor: 'bg-purple-50 dark:bg-purple-900/20',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
+  },
+  {
+    id: 'growth',
+    icon: TrendingUp,
+    label: 'Growth Rate',
+    value: animatedStats.growth,
+    suffix: '%',
+    color: 'from-orange-500 to-orange-600',
+    bgColor: 'bg-orange-50 dark:bg-orange-900/20',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
+  },
+  {
+    id: 'reviews',
+    icon: Star,
+    label: 'Customer Reviews',
+    value: animatedStats.reviews,
+    suffix: 'K+',
+    color: 'from-yellow-500 to-yellow-600',
+    bgColor: 'bg-yellow-50 dark:bg-yellow-900/20',
+    video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4'
+  },
+  {
+    id: 'products',
+    icon: Zap,
+    label: 'Products Available',
+    value: animatedStats.products,
+    suffix: 'K+',
+    color: 'from-teal-500 to-teal-600',
+    bgColor: 'bg-teal-50 dark:bg-teal-900/20',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4'
+  },
+  {
+    id: 'awards',
+    icon: Award,
+    label: 'Industry Awards',
+    value: animatedStats.awards,
+    suffix: '+',
+    color: 'from-indigo-500 to-indigo-600',
+    bgColor: 'bg-indigo-50 dark:bg-indigo-900/20',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4'
+  }];
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -149,13 +149,13 @@ const StatsSection: React.FC = () => {
         const easeProgress = 1 - Math.pow(1 - progress, 3);
 
         setAnimatedStats({
-          customers: Math.round((targetStats.customers / 1000000) * easeProgress * 100) / 100,
-          orders: Math.round((targetStats.orders / 1000000) * easeProgress * 100) / 100,
+          customers: Math.round(targetStats.customers / 1000000 * easeProgress * 100) / 100,
+          orders: Math.round(targetStats.orders / 1000000 * easeProgress * 100) / 100,
           satisfaction: Math.round(targetStats.satisfaction * easeProgress * 10) / 10,
           countries: Math.round(targetStats.countries * easeProgress),
           growth: Math.round(targetStats.growth * easeProgress),
-          reviews: Math.round((targetStats.reviews / 1000) * easeProgress),
-          products: Math.round((targetStats.products / 1000) * easeProgress),
+          reviews: Math.round(targetStats.reviews / 1000 * easeProgress),
+          products: Math.round(targetStats.products / 1000 * easeProgress),
           awards: Math.round(targetStats.awards * easeProgress)
         });
 
@@ -202,10 +202,10 @@ const StatsSection: React.FC = () => {
               <Card
                 key={stat.id}
                 className={`group cursor-pointer transition-all duration-700 hover:scale-110 hover:shadow-2xl hover:-translate-y-4 ${stat.bgColor} border-0 shadow-lg relative overflow-hidden ${
-                  isVisible ? 'animate-count-up' : 'opacity-0'
-                }`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
+                isVisible ? 'animate-count-up' : 'opacity-0'}`
+                }
+                style={{ animationDelay: `${index * 0.2}s` }}>
+
                 <CardContent className="p-8 text-center relative z-10">
                   {/* Background Video */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
@@ -213,8 +213,8 @@ const StatsSection: React.FC = () => {
                       autoPlay
                       muted
                       loop
-                      className="w-full h-full object-cover"
-                    >
+                      className="w-full h-full object-cover">
+
                       <source src={stat.video} type="video/mp4" />
                     </video>
                   </div>
@@ -245,8 +245,8 @@ const StatsSection: React.FC = () => {
                       style={{
                         width: isVisible ? '100%' : '0%',
                         transitionDelay: `${index * 0.2}s`
-                      }}
-                    />
+                      }} />
+
                   </div>
 
                   {/* Decorative Elements */}
@@ -260,22 +260,22 @@ const StatsSection: React.FC = () => {
 
                   {/* Floating particles */}
                   <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(3)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`absolute w-1 h-1 bg-gradient-to-r ${stat.color} rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000`}
-                        style={{
-                          left: `${20 + i * 30}%`,
-                          top: `${20 + i * 20}%`,
-                          animationDelay: `${i * 0.5}s`,
-                          animation: isVisible ? 'float 3s ease-in-out infinite' : 'none'
-                        }}
-                      />
-                    ))}
+                    {[...Array(3)].map((_, i) =>
+                    <div
+                      key={i}
+                      className={`absolute w-1 h-1 bg-gradient-to-r ${stat.color} rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000`}
+                      style={{
+                        left: `${20 + i * 30}%`,
+                        top: `${20 + i * 20}%`,
+                        animationDelay: `${i * 0.5}s`,
+                        animation: isVisible ? 'float 3s ease-in-out infinite' : 'none'
+                      }} />
+
+                    )}
                   </div>
                 </CardContent>
-              </Card>
-            );
+              </Card>);
+
           })}
         </div>
 
@@ -307,20 +307,20 @@ const StatsSection: React.FC = () => {
 
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(10)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-float opacity-5"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${8 + Math.random() * 4}s`
-            }}
-          >
+        {[...Array(10)].map((_, i) =>
+        <div
+          key={i}
+          className="absolute animate-float opacity-5"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${8 + Math.random() * 4}s`
+          }}>
+
             <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full" />
           </div>
-        ))}
+        )}
       </div>
 
       <style jsx>{`
@@ -353,8 +353,8 @@ const StatsSection: React.FC = () => {
           animation: float 6s ease-in-out infinite;
         }
       `}</style>
-    </section>
-  );
+    </section>);
+
 };
 
 export default StatsSection;

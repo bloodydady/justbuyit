@@ -8,122 +8,122 @@ const ProductGallery: React.FC = () => {
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
 
   const categories = [
-    { id: 'all', name: 'All Products', count: 24 },
-    { id: 'tech', name: 'Tech & Gadgets', count: 8 },
-    { id: 'fashion', name: 'Fashion', count: 10 },
-    { id: 'home', name: 'Home & Living', count: 6 }
-  ];
+  { id: 'all', name: 'All Products', count: 24 },
+  { id: 'tech', name: 'Tech & Gadgets', count: 8 },
+  { id: 'fashion', name: 'Fashion', count: 10 },
+  { id: 'home', name: 'Home & Living', count: 6 }];
+
 
   const products = [
-    {
-      id: 1,
-      name: 'Wireless AirPods Pro',
-      category: 'tech',
-      price: 249,
-      originalPrice: 299,
-      image: 'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4',
-      rating: 4.8,
-      reviews: 2847,
-      badge: 'Best Seller',
-      badgeColor: 'bg-red-500'
-    },
-    {
-      id: 2,
-      name: 'Designer Leather Jacket',
-      category: 'fashion',
-      price: 189,
-      originalPrice: 250,
-      image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4',
-      rating: 4.6,
-      reviews: 1523,
-      badge: 'Limited Edition',
-      badgeColor: 'bg-purple-500'
-    },
-    {
-      id: 3,
-      name: 'Smart Watch Series 8',
-      category: 'tech',
-      price: 399,
-      originalPrice: 449,
-      image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4',
-      rating: 4.9,
-      reviews: 3421,
-      badge: 'New Arrival',
-      badgeColor: 'bg-green-500'
-    },
-    {
-      id: 4,
-      name: 'Modern Floor Lamp',
-      category: 'home',
-      price: 129,
-      originalPrice: 169,
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4',
-      rating: 4.4,
-      reviews: 891,
-      badge: 'Sale',
-      badgeColor: 'bg-orange-500'
-    },
-    {
-      id: 5,
-      name: 'Premium Sneakers',
-      category: 'fashion',
-      price: 159,
-      originalPrice: 199,
-      image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4',
-      rating: 4.7,
-      reviews: 2156,
-      badge: 'Popular',
-      badgeColor: 'bg-blue-500'
-    },
-    {
-      id: 6,
-      name: 'Gaming Mechanical Keyboard',
-      category: 'tech',
-      price: 189,
-      originalPrice: 229,
-      image: 'https://images.unsplash.com/photo-1601445638532-3c6f6c3aa1d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4',
-      rating: 4.8,
-      reviews: 1847,
-      badge: 'Gaming',
-      badgeColor: 'bg-red-500'
-    },
-    {
-      id: 7,
-      name: 'Cozy Throw Blanket',
-      category: 'home',
-      price: 79,
-      originalPrice: 99,
-      image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4',
-      rating: 4.5,
-      reviews: 672,
-      badge: 'Comfort',
-      badgeColor: 'bg-pink-500'
-    },
-    {
-      id: 8,
-      name: 'Vintage Sunglasses',
-      category: 'fashion',
-      price: 89,
-      originalPrice: 119,
-      image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-      video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4',
-      rating: 4.3,
-      reviews: 1234,
-      badge: 'Retro',
-      badgeColor: 'bg-yellow-500'
-    }
-  ];
+  {
+    id: 1,
+    name: 'Wireless AirPods Pro',
+    category: 'tech',
+    price: 249,
+    originalPrice: 299,
+    image: 'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4',
+    rating: 4.8,
+    reviews: 2847,
+    badge: 'Best Seller',
+    badgeColor: 'bg-red-500'
+  },
+  {
+    id: 2,
+    name: 'Designer Leather Jacket',
+    category: 'fashion',
+    price: 189,
+    originalPrice: 250,
+    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4',
+    rating: 4.6,
+    reviews: 1523,
+    badge: 'Limited Edition',
+    badgeColor: 'bg-purple-500'
+  },
+  {
+    id: 3,
+    name: 'Smart Watch Series 8',
+    category: 'tech',
+    price: 399,
+    originalPrice: 449,
+    image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4',
+    rating: 4.9,
+    reviews: 3421,
+    badge: 'New Arrival',
+    badgeColor: 'bg-green-500'
+  },
+  {
+    id: 4,
+    name: 'Modern Floor Lamp',
+    category: 'home',
+    price: 129,
+    originalPrice: 169,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4',
+    rating: 4.4,
+    reviews: 891,
+    badge: 'Sale',
+    badgeColor: 'bg-orange-500'
+  },
+  {
+    id: 5,
+    name: 'Premium Sneakers',
+    category: 'fashion',
+    price: 159,
+    originalPrice: 199,
+    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4',
+    rating: 4.7,
+    reviews: 2156,
+    badge: 'Popular',
+    badgeColor: 'bg-blue-500'
+  },
+  {
+    id: 6,
+    name: 'Gaming Mechanical Keyboard',
+    category: 'tech',
+    price: 189,
+    originalPrice: 229,
+    image: 'https://images.unsplash.com/photo-1601445638532-3c6f6c3aa1d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    video: 'https://videos.pexels.com/video-files/3843433/3843433-uhd_2560_1440_30fps.mp4',
+    rating: 4.8,
+    reviews: 1847,
+    badge: 'Gaming',
+    badgeColor: 'bg-red-500'
+  },
+  {
+    id: 7,
+    name: 'Cozy Throw Blanket',
+    category: 'home',
+    price: 79,
+    originalPrice: 99,
+    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    video: 'https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4',
+    rating: 4.5,
+    reviews: 672,
+    badge: 'Comfort',
+    badgeColor: 'bg-pink-500'
+  },
+  {
+    id: 8,
+    name: 'Vintage Sunglasses',
+    category: 'fashion',
+    price: 89,
+    originalPrice: 119,
+    image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    video: 'https://videos.pexels.com/video-files/3212450/3212450-uhd_2560_1440_30fps.mp4',
+    rating: 4.3,
+    reviews: 1234,
+    badge: 'Retro',
+    badgeColor: 'bg-yellow-500'
+  }];
 
-  const filteredProducts = selectedCategory === 'all' 
-    ? products 
-    : products.filter(product => product.category === selectedCategory);
+
+  const filteredProducts = selectedCategory === 'all' ?
+  products :
+  products.filter((product) => product.category === selectedCategory);
 
   const handleRippleEffect = (e: React.MouseEvent<HTMLButtonElement>) => {
     const button = e.currentTarget;
@@ -132,12 +132,12 @@ const ProductGallery: React.FC = () => {
     const size = Math.max(rect.width, rect.height);
     const x = e.clientX - rect.left - size / 2;
     const y = e.clientY - rect.top - size / 2;
-    
+
     ripple.style.width = ripple.style.height = size + 'px';
     ripple.style.left = x + 'px';
     ripple.style.top = y + 'px';
     ripple.classList.add('ripple');
-    
+
     button.appendChild(ripple);
     setTimeout(() => ripple.remove(), 600);
   };
@@ -156,51 +156,51 @@ const ProductGallery: React.FC = () => {
 
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
-                selectedCategory === category.id
-                  ? 'bg-purple-600 text-white shadow-lg'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900'
-              }`}
-            >
+          {categories.map((category) =>
+          <button
+            key={category.id}
+            onClick={() => setSelectedCategory(category.id)}
+            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
+            selectedCategory === category.id ?
+            'bg-purple-600 text-white shadow-lg' :
+            'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900'}`
+            }>
+
               {category.name}
               <span className="ml-2 text-sm opacity-70">({category.count})</span>
             </button>
-          ))}
+          )}
         </div>
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {filteredProducts.map((product, index) => (
-            <Card
-              key={product.id}
-              className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onMouseEnter={() => setHoveredProduct(product.id)}
-              onMouseLeave={() => setHoveredProduct(null)}
-            >
+          {filteredProducts.map((product, index) =>
+          <Card
+            key={product.id}
+            className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up`}
+            style={{ animationDelay: `${index * 0.1}s` }}
+            onMouseEnter={() => setHoveredProduct(product.id)}
+            onMouseLeave={() => setHoveredProduct(null)}>
+
               <CardContent className="p-0 relative overflow-hidden">
                 {/* Product Image/Video */}
                 <div className="relative aspect-square overflow-hidden">
-                  {hoveredProduct === product.id ? (
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                  {hoveredProduct === product.id ?
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
                       <source src={product.video} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  )}
+                    </video> :
+
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+
+                }
                   
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -222,21 +222,21 @@ const ProductGallery: React.FC = () => {
                   
                   {/* Quick Add to Cart */}
                   <button
-                    className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-10 group-hover:translate-y-0 hover:bg-purple-700 ripple-container"
-                    onClick={handleRippleEffect}
-                  >
+                  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-10 group-hover:translate-y-0 hover:bg-purple-700 ripple-container"
+                  onClick={handleRippleEffect}>
+
                     <ShoppingCart className="h-4 w-4 mr-2 inline" />
                     Add to Cart
                   </button>
                   
                   {/* Play Icon for Video */}
-                  {hoveredProduct !== product.id && (
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {hoveredProduct !== product.id &&
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-white/90 rounded-full p-3 hover:bg-white transition-colors">
                         <Play className="h-6 w-6 text-purple-600" />
                       </div>
                     </div>
-                  )}
+                }
                 </div>
                 
                 {/* Product Info */}
@@ -248,12 +248,12 @@ const ProductGallery: React.FC = () => {
                   {/* Rating */}
                   <div className="flex items-center gap-2 mb-2">
                     <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
-                        />
-                      ))}
+                      {[...Array(5)].map((_, i) =>
+                    <Star
+                      key={i}
+                      className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} />
+
+                    )}
                     </div>
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       {product.rating} ({product.reviews})
@@ -269,21 +269,21 @@ const ProductGallery: React.FC = () => {
                       ${product.originalPrice}
                     </span>
                     <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">
-                      {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+                      {Math.round((product.originalPrice - product.price) / product.originalPrice * 100)}% OFF
                     </span>
                   </div>
                 </div>
               </CardContent>
             </Card>
-          ))}
+          )}
         </div>
 
         {/* Load More Button */}
         <div className="text-center mt-12">
           <button
             className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 ripple-container"
-            onClick={handleRippleEffect}
-          >
+            onClick={handleRippleEffect}>
+
             Load More Products
           </button>
         </div>
@@ -329,8 +329,8 @@ const ProductGallery: React.FC = () => {
           }
         }
       `}</style>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ProductGallery;

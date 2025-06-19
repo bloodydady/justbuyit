@@ -2,21 +2,21 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Youtube, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  ArrowRight, 
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowRight,
   Heart,
   Truck,
   Shield,
   Award,
-  CreditCard
-} from 'lucide-react';
+  CreditCard } from
+'lucide-react';
 
 const Footer: React.FC = () => {
   const scrollToSection = (href: string) => {
@@ -33,56 +33,56 @@ const Footer: React.FC = () => {
     const size = Math.max(rect.width, rect.height);
     const x = e.clientX - rect.left - size / 2;
     const y = e.clientY - rect.top - size / 2;
-    
+
     ripple.style.width = ripple.style.height = size + 'px';
     ripple.style.left = x + 'px';
     ripple.style.top = y + 'px';
     ripple.classList.add('ripple');
-    
+
     button.appendChild(ripple);
     setTimeout(() => ripple.remove(), 600);
   };
 
   const quickLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'Products', href: '#products' },
-    { name: 'Features', href: '#features' },
-    { name: 'Partners', href: '#partners' },
-    { name: 'Reviews', href: '#testimonials' },
-    { name: 'About Us', href: '#about' },
-  ];
+  { name: 'Home', href: '#hero' },
+  { name: 'Products', href: '#products' },
+  { name: 'Features', href: '#features' },
+  { name: 'Partners', href: '#partners' },
+  { name: 'Reviews', href: '#testimonials' },
+  { name: 'About Us', href: '#about' }];
+
 
   const categories = [
-    'Electronics & Tech',
-    'Fashion & Apparel',
-    'Home & Garden',
-    'Sports & Outdoors',
-    'Beauty & Health',
-    'Books & Media'
-  ];
+  'Electronics & Tech',
+  'Fashion & Apparel',
+  'Home & Garden',
+  'Sports & Outdoors',
+  'Beauty & Health',
+  'Books & Media'];
+
 
   const customerService = [
-    'Contact Support',
-    'Shipping Info',
-    'Returns & Exchanges',
-    'Size Guide',
-    'Track Your Order',
-    'FAQ'
-  ];
+  'Contact Support',
+  'Shipping Info',
+  'Returns & Exchanges',
+  'Size Guide',
+  'Track Your Order',
+  'FAQ'];
+
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook', color: 'hover:text-blue-600' },
-    { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:text-blue-400' },
-    { icon: Instagram, href: '#', label: 'Instagram', color: 'hover:text-pink-600' },
-    { icon: Youtube, href: '#', label: 'YouTube', color: 'hover:text-red-600' }
-  ];
+  { icon: Facebook, href: '#', label: 'Facebook', color: 'hover:text-blue-600' },
+  { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:text-blue-400' },
+  { icon: Instagram, href: '#', label: 'Instagram', color: 'hover:text-pink-600' },
+  { icon: Youtube, href: '#', label: 'YouTube', color: 'hover:text-red-600' }];
+
 
   const trustBadges = [
-    { icon: Truck, text: 'Free Shipping', color: 'text-blue-600' },
-    { icon: Shield, text: 'Secure Payment', color: 'text-green-600' },
-    { icon: Award, text: 'Quality Guarantee', color: 'text-purple-600' },
-    { icon: CreditCard, text: 'Easy Returns', color: 'text-orange-600' }
-  ];
+  { icon: Truck, text: 'Free Shipping', color: 'text-blue-600' },
+  { icon: Shield, text: 'Secure Payment', color: 'text-green-600' },
+  { icon: Award, text: 'Quality Guarantee', color: 'text-purple-600' },
+  { icon: CreditCard, text: 'Easy Returns', color: 'text-orange-600' }];
+
 
   return (
     <footer id="footer" className="bg-gray-900 text-white relative overflow-hidden">
@@ -92,8 +92,8 @@ const Footer: React.FC = () => {
           autoPlay
           muted
           loop
-          className="w-full h-full object-cover"
-        >
+          className="w-full h-full object-cover">
+
           <source src="https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4" type="video/mp4" />
         </video>
       </div>
@@ -117,12 +117,12 @@ const Footer: React.FC = () => {
                   <Input
                     type="email"
                     placeholder="Enter your email"
-                    className="flex-1 bg-white/20 border-white/30 placeholder:text-white/70 text-white"
-                  />
+                    className="flex-1 bg-white/20 border-white/30 placeholder:text-white/70 text-white" />
+
                   <Button
                     className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 ripple-container"
-                    onClick={handleRippleEffect}
-                  >
+                    onClick={handleRippleEffect}>
+
                     Subscribe
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -178,11 +178,11 @@ const Footer: React.FC = () => {
                       key={social.label}
                       href={social.href}
                       className={`p-3 bg-gray-800 hover:bg-gray-700 rounded-full transition-all duration-300 hover:scale-110 ${social.color}`}
-                      aria-label={social.label}
-                    >
+                      aria-label={social.label}>
+
                       <IconComponent className="h-5 w-5" />
-                    </a>
-                  );
+                    </a>);
+
                 })}
               </div>
             </div>
@@ -191,17 +191,17 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-xl font-semibold mb-6 text-white">Quick Links</h4>
               <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
+                {quickLinks.map((link) =>
+                <li key={link.name}>
                     <button
-                      onClick={() => scrollToSection(link.href)}
-                      className="text-gray-400 hover:text-white transition-colors hover:translate-x-2 transform duration-200 flex items-center gap-2 group"
-                    >
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-gray-400 hover:text-white transition-colors hover:translate-x-2 transform duration-200 flex items-center gap-2 group">
+
                       <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                       {link.name}
                     </button>
                   </li>
-                ))}
+                )}
               </ul>
             </div>
 
@@ -209,17 +209,17 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-xl font-semibold mb-6 text-white">Shop Categories</h4>
               <ul className="space-y-3">
-                {categories.map((category) => (
-                  <li key={category}>
-                    <a 
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors hover:translate-x-2 transform duration-200 flex items-center gap-2 group"
-                    >
+                {categories.map((category) =>
+                <li key={category}>
+                    <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors hover:translate-x-2 transform duration-200 flex items-center gap-2 group">
+
                       <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                       {category}
                     </a>
                   </li>
-                ))}
+                )}
               </ul>
             </div>
 
@@ -227,17 +227,17 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-xl font-semibold mb-6 text-white">Customer Service</h4>
               <ul className="space-y-3">
-                {customerService.map((service) => (
-                  <li key={service}>
-                    <a 
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors hover:translate-x-2 transform duration-200 flex items-center gap-2 group"
-                    >
+                {customerService.map((service) =>
+                <li key={service}>
+                    <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors hover:translate-x-2 transform duration-200 flex items-center gap-2 group">
+
                       <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                       {service}
                     </a>
                   </li>
-                ))}
+                )}
               </ul>
             </div>
           </div>
@@ -253,8 +253,8 @@ const Footer: React.FC = () => {
                   <div key={badge.text} className="flex items-center gap-3 justify-center">
                     <IconComponent className={`h-6 w-6 ${badge.color}`} />
                     <span className="text-gray-400 font-medium">{badge.text}</span>
-                  </div>
-                );
+                  </div>);
+
               })}
             </div>
           </div>
@@ -282,20 +282,20 @@ const Footer: React.FC = () => {
 
       {/* Floating Animation Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-float opacity-20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${8 + Math.random() * 4}s`
-            }}
-          >
+        {[...Array(6)].map((_, i) =>
+        <div
+          key={i}
+          className="absolute animate-float opacity-20"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${8 + Math.random() * 4}s`
+          }}>
+
             <div className="w-4 h-4 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full" />
           </div>
-        ))}
+        )}
       </div>
 
       <style jsx>{`
@@ -335,8 +335,8 @@ const Footer: React.FC = () => {
           }
         }
       `}</style>
-    </footer>
-  );
+    </footer>);
+
 };
 
 export default Footer;
